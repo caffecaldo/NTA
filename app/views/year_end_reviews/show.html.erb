@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Note:</b>
+  <%= @year_end_review.note %>
+</p>
+
+<p>
+  <b>Student:</b>
+  <%= @year_end_review.student_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_year_end_review_path(@year_end_review) %> |
+<%= link_to 'Back', year_end_reviews_path %>

@@ -1,0 +1,25 @@
+<h1>Listing year_end_reviews</h1>
+
+<table>
+  <tr>
+    <th>Note</th>
+    <th>Student</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @year_end_reviews.each do |year_end_review| %>
+  <tr>
+    <td><%= year_end_review.note %></td>
+    <td><%= year_end_review.student_id %></td>
+    <td><%= link_to 'Show', year_end_review %></td>
+    <td><%= link_to 'Edit', edit_year_end_review_path(year_end_review) %></td>
+    <td><%= link_to 'Destroy', year_end_review, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Year end review', new_year_end_review_path %>

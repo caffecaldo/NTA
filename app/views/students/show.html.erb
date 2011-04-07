@@ -1,0 +1,116 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Firstname:</b>
+  <%= @student.firstname %>
+</p>
+
+<p>
+  <b>Middlename:</b>
+  <%= @student.middlename %>
+</p>
+
+<p>
+  <b>Lastname:</b>
+  <%= @student.lastname %>
+</p>
+
+<p>
+  <b>Address1:</b>
+  <%= @student.address1 %>
+</p>
+
+<p>
+  <b>Address2:</b>
+  <%= @student.address2 %>
+</p>
+
+<p>
+  <b>Address3:</b>
+  <%= @student.address3 %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @student.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @student.state %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%= @student.zip %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @student.email %>
+</p>
+
+<p>
+  <b>Birthdate:</b>
+  <%= @student.birthdate %>
+</p>
+
+<p>
+  <b>Additional notes:</b>
+  <%= @student.additional_notes %>
+</p>
+
+<p>
+  <b>Sticky listing:</b>
+  <%= @student.sticky_listing %>
+</p>
+
+<p>
+  <b>Do not disturb:</b>
+  <%= @student.do_not_disturb %>
+</p>
+
+<p>
+  <b>Rank:</b>
+  <%= Rank.find(@student.rank_id).name %>
+</p>
+
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %>
+
+<hr>
+<h2>Notes</h2>
+
+<table>
+  <tr>
+    <th>Timestamp</th>
+    <th>Student</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% student_notes = Note.where(:student_id => :id).order(:created_at) %>
+
+<% student_notes.each do |note| %>
+  <tr>
+    <td><%= note.created_at %></td>
+    <td><%= note.student_id %></td>
+    <td><%= link_to 'Show', note %></td>
+    <td><%= link_to 'Edit', edit_note_path(note) %></td>
+    <td><%= link_to 'Delete', note, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<% if student_notes.size == 0 %>
+  <em>No notes at this time.</em>
+<% end %>
+
+<%= link_to "New note", new_note_path(params[:student_id]) %>
+
+<hr>
+<h2>Year-end reviews</h2>
+
+<%= link_to "Year-end reviews", year_end_reviews_path %>

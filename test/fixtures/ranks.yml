@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  order: 1
+  name: MyString
+  days_since_last_test: 1
+
+two:
+  order: 1
+  name: MyString
+  days_since_last_test: 1

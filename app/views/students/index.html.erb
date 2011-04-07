@@ -1,0 +1,43 @@
+<h1>Listing students</h1>
+
+<table>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th>Email</th>
+    <th>Birthdate</th>
+    <th>Sticky</th>
+    <th>DnD</th>
+    <th>Rank</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @students.each do |student| %>
+  <tr>
+    <td><%= student.firstname %></td>
+    <td><%= student.lastname %></td>
+    <td><%= student.city %></td>
+    <td><%= student.state %></td>
+    <td><%= student.zip %></td>
+    <td><a href=mailto:<%= student.email %>><%= student.email %></a></td>
+    <td><%= student.birthdate.strftime("%m/%d/%y") %></td>
+    <td><%= check_box_tag 'sticky', 'yes', student.sticky_listing, :disabled => true %></td>
+    <td><%= check_box_tag 'sticky', 'yes', student.do_not_disturb, :disabled => true %></td>
+    <td><%= Rank.find(student.rank_id).name %></td>
+    <td><%= link_to 'Show', student %></td>
+    <td><%= link_to 'Edit', edit_student_path(student) %></td>
+    <td><%= link_to 'Delete', student, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Student', new_student_path %>
+<p></p>
+<%= link_to "Home", root_path %>

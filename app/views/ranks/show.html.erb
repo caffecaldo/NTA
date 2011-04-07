@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Order:</b>
+  <%= @rank.order %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @rank.name %>
+</p>
+
+<p>
+  <b>Days required:</b>
+  <%= @rank.days_required %>
+</p>
+
+
+<%= link_to 'Edit', edit_rank_path(@rank) %> |
+<%= link_to 'Back', ranks_path %>

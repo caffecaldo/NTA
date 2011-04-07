@@ -1,0 +1,25 @@
+<%= form_for(@year_end_review) do |f| %>
+  <% if @year_end_review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@year_end_review.errors.count, "error") %> prohibited this year_end_review from being saved:</h2>
+
+      <ul>
+      <% @year_end_review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :note %><br />
+    <%= f.text_area :note %>
+  </div>
+  <div class="field">
+    <%= f.label :student_id %><br />
+    <%= f.text_field :student_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
