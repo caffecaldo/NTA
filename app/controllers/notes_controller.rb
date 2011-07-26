@@ -2,7 +2,7 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.xml
   def index
-    @notes = Note.all
+    @notes = Note.order(:student_id).order(:created_at)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,6 +25,7 @@ class NotesController < ApplicationController
   # GET /notes/new.xml
   def new
     @note = Note.new
+    @note.student_id = params[:student_id]
 
     respond_to do |format|
       format.html # new.html.erb

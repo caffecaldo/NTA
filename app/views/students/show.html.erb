@@ -47,12 +47,12 @@
 
 <p>
   <b>Email:</b>
-  <%= @student.email %>
+  <a href=mailto:<%= @student.email %>><%= @student.email %></a>
 </p>
 
 <p>
   <b>Birthdate:</b>
-  <%= @student.birthdate %>
+  <%= @student.birthdate.strftime( "%m/%d/%Y" ) %>
 </p>
 
 <p>
@@ -91,7 +91,7 @@
     <th></th>
   </tr>
 
-<% student_notes = Note.where(:student_id => :id).order(:created_at) %>
+<% student_notes = Note.where(:student_id => @student.id).order(:created_at) %>
 
 <% student_notes.each do |note| %>
   <tr>
@@ -108,7 +108,7 @@
   <em>No notes at this time.</em>
 <% end %>
 
-<%= link_to "New note", new_note_path(params[:student_id]) %>
+<%= link_to "New note", new_note_path( :student_id => @student.id ) %>
 
 <hr>
 <h2>Year-end reviews</h2>

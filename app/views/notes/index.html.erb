@@ -10,9 +10,11 @@
   </tr>
 
 <% @notes.each do |note| %>
+  <% student_id = note.student_id %>
+  <% s = Student.find(note.student_id) %>
   <tr>
     <td><%= note.note %></td>
-    <td><%= note.student_id %></td>
+    <td><%= s.firstname %> <%= s.lastname %></td>
     <td><%= link_to 'Show', note %></td>
     <td><%= link_to 'Edit', edit_note_path(note) %></td>
     <td><%= link_to 'Destroy', note, :confirm => 'Are you sure?', :method => :delete %></td>
@@ -23,3 +25,5 @@
 <br />
 
 <%= link_to 'New Note', new_note_path %>
+<p></p>
+<%= link_to "Home", root_path %>
