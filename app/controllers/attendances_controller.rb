@@ -10,6 +10,10 @@ class AttendancesController < ApplicationController
     end
   end
 
+  def index
+    @students = Student.all
+  end
+
   # GET /attendances/1
   # GET /attendances/1.xml
   def show

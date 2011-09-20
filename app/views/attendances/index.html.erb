@@ -1,25 +1,32 @@
-<h1>Listing attendances</h1>
+<% today = Date.today %>
+<% first_of_month = today.beginning_of_month %>
+<% last_of_month = today.end_of_month %>
+<% date_a = first_of_month.step(last_of_month, 1).to_a %>
+<h2><%= today.strftime("%B %Y") %></h2>
 
 <table>
   <tr>
-    <th>Date</th>
-    <th>Student</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>NAME</th>
+    <% date_a.each do |d| %>
+      <th><%= d.day %></th>
+    <% end %>
   </tr>
 
-<% @attendances.each do |attendance| %>
+<% @students.each do |s| %>
   <tr>
-    <td><%= attendance.date %></td>
-    <td><%= attendance.student_id %></td>
-    <td><%= link_to 'Show', attendance %></td>
-    <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>
-    <td><%= link_to 'Destroy', attendance, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= s.firstname %> <%= s.lastname %></td>
+    <% stud_att = Attendance.where(:student_id => s.id) %>
+    <% date_a.each do |d| %>
+        <% if stud_att.where(:date => d).exists? %>
+          <td><%= check_box_tag s.id, d, true %></td>
+        <% else %>
+          <td><%= check_box_tag s.id, d, false %></td>
+        <% end %>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Attendance', new_attendance_path %>
+<%= link_to "Home", root_path %>

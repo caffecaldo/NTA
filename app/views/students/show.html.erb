@@ -62,12 +62,12 @@
 
 <p>
   <b>Sticky listing:</b>
-  <%= @student.sticky_listing %>
+  <%= check_box_tag 'sticky', 'yes', @student.sticky_listing, :disabled => true %>
 </p>
 
 <p>
   <b>Do not disturb:</b>
-  <%= @student.do_not_disturb %>
+  <%= check_box_tag 'sticky', 'yes', @student.do_not_disturb, :disabled => true %>
 </p>
 
 <p>
