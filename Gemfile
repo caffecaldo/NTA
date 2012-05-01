@@ -12,11 +12,12 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem "calendar_helper", "0.2.4"
 
 group :production do
-  #gem 'pg'
+  gem 'pg'
+  gem 'railroady'
 end
 group :development, :test do
-	gem 'railroady'
-	gem 'sqlite3'
+  gem 'sqlite3'
+  gem 'railroady'
 end
 
 
