@@ -11,6 +11,7 @@ gem 'rails', '3.0.3'
 gem "calendar_helper", "0.2.4"
 
 group :production do
+  gem 'ruby-pg', :require => 'sqlite3'
   gem 'pg'
   gem 'railroady'
 end
