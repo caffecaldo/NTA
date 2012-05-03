@@ -53,11 +53,15 @@
   </div>
   <div class="field">
     <%= f.label :birthdate %><br />
-    <%= f.date_select :birthdate, :start_year => 1910, :end_year => Time.now.year, :order =>[:month, :day, :year] %>
+    <%= f.date_select :birthdate, :start_year => Time.now.year - 100, :end_year => Time.now.year, :order =>[:month, :day, :year] %>
   </div>
   <div class="field">
     <%= f.label :additional_notes %><br />
     <%= f.text_area :additional_notes, :size => "60x4" %>
+  </div>
+  <div class="field">
+    <%= f.label :days_carry_forward %><br />
+    <%= f.text_field :days_carry_forward, :size => "5" %>
   </div>
   <div class="field">
     <%= f.label :sticky_listing %>
