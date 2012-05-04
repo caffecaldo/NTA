@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120504052733) do
+ActiveRecord::Schema.define(:version => 20120504054713) do
 
   create_table "attendances", :force => true do |t|
     t.date     "date"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20120504052733) do
   create_table "ranks", :force => true do |t|
     t.integer  "order"
     t.string   "name"
-    t.integer  "class_hours_required"
+    t.integer  "class_hours_required", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "cal_days_required",    :default => 0
