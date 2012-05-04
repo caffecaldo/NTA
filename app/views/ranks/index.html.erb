@@ -4,8 +4,8 @@
   <tr>
     <th>Seq.</th>
     <th>Name</th>
-    <th>Days</th>
-    <th></th>
+    <th>Class Hours Req'd</th>
+    <th>Calendar Days Req'd</th>
     <th></th>
     <th></th>
   </tr>
@@ -14,7 +14,8 @@
   <tr>
     <td><%= rank.order %></td>
     <td><%= rank.name %></td>
-    <td><%= rank.days_required %></td>
+    <td><%= rank.class_hours_required %></td>
+    <td><%= rank.cal_days_required %></td>
     <td><%= link_to 'Show', rank %></td>
     <td><%= link_to 'Edit', edit_rank_path(rank) %></td>
     <td><%= link_to 'Delete', rank, :confirm => 'Are you sure you want to delete this rank? (You might want to edit instead.)', :method => :delete %></td>
