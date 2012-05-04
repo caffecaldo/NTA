@@ -1,15 +1,9 @@
-class CreateRanks < ActiveRecord::Migration
+class ChangeDaysCarryForward < ActiveRecord::Migration
   def self.up
-    create_table :ranks do |t|
-      t.integer :order
-      t.string :name
-      t.integer :days_required
-
-      t.timestamps
-    end
+    change_column_default(:students, :days_carry_forward, :default => 0)
   end
 
   def self.down
-    drop_table :ranks
+    change_column_default(:students, :days_carry_forward, :default => nil)
   end
 end

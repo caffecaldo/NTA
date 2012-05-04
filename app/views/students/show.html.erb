@@ -56,8 +56,13 @@
 </p>
 
 <p>
-  <b>Additional notes:</b>
-  <%= @student.additional_notes %>
+  <b>Rank:</b>
+  <%= Rank.find(@student.rank_id).name %>
+</p>
+
+<p>
+  <b>Days carried forward:</b>
+  <%= @student.days_carry_forward %>
 </p>
 
 <p>
@@ -71,8 +76,8 @@
 </p>
 
 <p>
-  <b>Rank:</b>
-  <%= Rank.find(@student.rank_id).name %>
+  <b>Additional notes:</b>
+  <%= @student.additional_notes %>
 </p>
 
 

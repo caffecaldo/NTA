@@ -55,9 +55,8 @@
     <%= f.label :birthdate %><br />
     <%= f.date_select :birthdate, :start_year => Time.now.year - 100, :end_year => Time.now.year, :order =>[:month, :day, :year] %>
   </div>
-  <div class="field">
-    <%= f.label :additional_notes %><br />
-    <%= f.text_area :additional_notes, :size => "60x4" %>
+  <div class="field" >
+    <%= collection_select( :student, :rank_id, Rank.all, :id, :name ) %>
   </div>
   <div class="field">
     <%= f.label :days_carry_forward %><br />
@@ -71,8 +70,9 @@
     <%= f.label :do_not_disturb %>
     <%= f.check_box :do_not_disturb %>
   </div>
-  <div class="field" >
-    <%= collection_select( :student, :rank_id, Rank.all, :id, :name ) %>
+  <div class="field">
+    <%= f.label :additional_notes %><br />
+    <%= f.text_area :additional_notes, :size => "60x4" %>
   </div>
   <div class="actions">
     <%= f.submit %>

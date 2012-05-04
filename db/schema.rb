@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110920045543) do
+ActiveRecord::Schema.define(:version => 20120504040140) do
 
   create_table "attendances", :force => true do |t|
     t.date     "date"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(:version => 20110920045543) do
     t.string   "address3"
     t.string   "city"
     t.string   "state"
-    t.integer  "zip"
+    t.text     "zip"
     t.string   "email"
     t.date     "birthdate"
     t.text     "additional_notes"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(:version => 20110920045543) do
     t.integer  "rank_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "days_carry_forward"
+    t.integer  "days_carry_forward", :default => 0
   end
 
   create_table "tests", :force => true do |t|
