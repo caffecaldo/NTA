@@ -3,7 +3,8 @@
   - from <start date> to <end date> (in the past), who did what tests
 
 - TESTS table:
-  - test_rank_id - so we know what the student tested / is testing for
+  - rank_order - so we know what the student tested / is testing for
+  - references the 'order' column in Ranks
 
 - Attendance:
   - print student list, grouped by rank / ordered by name (first? last?)
@@ -15,3 +16,5 @@
         - classes from start of month up to but not including test day - entered into box for the day just prior to test day
         - classes from test day to end of month - entered into last day of the month
 
+- Notes
+  - need to be able to specify student when adding/changing
