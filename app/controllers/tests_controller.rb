@@ -2,7 +2,9 @@ class TestsController < ApplicationController
   # GET /tests
   # GET /tests.xml
   def index
-    @tests = Test.all
+    #@tests = Test.all
+    @tests = Test.all(:order => 'date DESC')
+    
 
     respond_to do |format|
       format.html # index.html.erb
