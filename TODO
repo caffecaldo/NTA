@@ -1,0 +1,17 @@
+- reporting:
+  - current/upcoming test eligibilities
+  - from <start date> to <end date> (in the past), who did what tests
+
+- TESTS table:
+  - test_rank_id - so we know what the student tested / is testing for
+
+- Attendance:
+  - print student list, grouped by rank / ordered by name (first? last?)
+  - edit sheet
+    - click auto-selects field (might be handy everywhere)
+    - change checkboxes to numeric fields
+      - the idea is that a '1' could be put in for any given day, or the total # of hours could be entered in the last day of the month (total # of 'X's from paper attendance sheet)
+      - exception would be when a student tests:
+        - classes from start of month up to but not including test day - entered into box for the day just prior to test day
+        - classes from test day to end of month - entered into last day of the month
+
