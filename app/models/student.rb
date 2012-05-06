@@ -4,4 +4,7 @@ class Student < ActiveRecord::Base
   has_many :year_end_reviews
   validates_presence_of     :days_carry_forward
   validates_numericality_of :days_carry_forward
+  def fullname
+    "#{firstname} #{lastname}"
+  end
 end

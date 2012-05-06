@@ -12,54 +12,55 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :firstname %><br />
+    <%= f.label :first_name %>
     <%= f.text_field :firstname %>
   </div>
   <div class="field">
-    <%= f.label :middlename %><br />
+    <%= f.label :middle_name %>
     <%= f.text_field :middlename %>
   </div>
   <div class="field">
-    <%= f.label :lastname %><br />
+    <%= f.label :last_name %>
     <%= f.text_field :lastname %>
   </div>
   <div class="field">
-    <%= f.label :address1 %><br />
+    <%= f.label :address_1 %>
     <%= f.text_field :address1 %>
   </div>
   <div class="field">
-    <%= f.label :address2 %><br />
+    <%= f.label :address_2 %>
     <%= f.text_field :address2 %>
   </div>
   <div class="field">
-    <%= f.label :address3 %><br />
+    <%= f.label :address_3 %>
     <%= f.text_field :address3 %>
   </div>
   <div class="field">
-    <%= f.label :city %><br />
+    <%= f.label :city %>
     <%= f.text_field :city %>
   </div>
   <div class="field">
-    <%= f.label :state %><br />
+    <%= f.label :state %>
     <%= f.text_field :state %>
   </div>
   <div class="field">
-    <%= f.label :zip %><br />
+    <%= f.label :zip %>
     <%= f.text_field :zip %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %>
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :birthdate %><br />
+    <%= f.label :birthdate %>
     <%= f.date_select :birthdate, :start_year => Time.now.year - 100, :end_year => Time.now.year, :order =>[:month, :day, :year] %>
   </div>
   <div class="field" >
+	<%= f.label :rank %>
     <%= collection_select( :student, :rank_id, Rank.all, :id, :name ) %>
   </div>
   <div class="field">
-    <%= f.label :days_carry_forward %><br />
+    <%= f.label :days_carry_forward %>
     <%= f.text_field :days_carry_forward, :size => "5" %>
   </div>
   <div class="field">
