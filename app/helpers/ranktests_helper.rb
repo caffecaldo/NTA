@@ -1,0 +1,2 @@
+module RanktestsHelper
+end

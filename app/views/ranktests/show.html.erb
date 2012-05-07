@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Date:</b>
+  <%= @ranktest.date.strftime( "%m/%d/%Y" ) %>
+</p>
+
+<p>
+  <b>Student:</b>
+  <%= Student.find(@ranktest.student_id).fullname %>
+</p>
+
+<p>
+  <b>Rank:</b>
+  <%= Rank.find(@ranktest.rank_id).name %>
+</p>
+
+
+<%= link_to 'Edit', edit_ranktest_path(@ranktest) %> |
+<%= link_to 'Back', ranktests_path %>
+<p></p>
+<%= link_to "Home", root_path %>

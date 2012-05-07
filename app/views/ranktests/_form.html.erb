@@ -1,0 +1,29 @@
+<%= form_for(@ranktest) do |f| %>
+  <% if @ranktest.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ranktest.errors.count, "error") %> prohibited this rank test from being saved:</h2>
+
+      <ul>
+      <% @ranktest.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date %>
+    <%= f.date_select :date, :start_year => Time.now.year - 10, :end_year => Time.now.year, :order =>[:month, :day, :year] %>
+  </div>
+  <div class="field">
+    <%= f.label :student %>
+    <%= collection_select( :ranktest, :student_id, Student.all(:order => 'lastname ASC'), :id, :fullname, {:prompt => true} ) %>
+  </div>
+  <div class="field">
+    <%= f.label :rank %>
+    <%= collection_select( :ranktest, :rank_id, Rank.all(:order => 'seq ASC'), :id, :name, {:prompt => true} ) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
