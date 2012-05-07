@@ -31,7 +31,7 @@
     <td><%= student.birthdate.strftime("%m/%d/%Y") %></td>
     <td><%= check_box_tag 'sticky', 'yes', student.sticky_listing, :disabled => true %></td>
     <td><%= check_box_tag 'sticky', 'yes', student.do_not_disturb, :disabled => true %></td>
-    <% foo = Test.maximum("id") %>
+    <% foo = Ranktest.maximum("id") %>
     <%= puts foo %>
     <td><%= Rank.find(student.rank_id).name %></td>
     <td><%= link_to 'Show', student %></td>

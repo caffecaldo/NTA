@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120506055452) do
+ActiveRecord::Schema.define(:version => 20120506231925) do
 
   create_table "attendances", :force => true do |t|
     t.date     "date"
@@ -42,6 +42,14 @@ ActiveRecord::Schema.define(:version => 20120506055452) do
     t.integer  "cal_months_required",  :default => 0
   end
 
+  create_table "ranktests", :force => true do |t|
+    t.date     "date"
+    t.integer  "student_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "rank_id",    :default => 0
+  end
+
   create_table "students", :force => true do |t|
     t.string   "firstname"
     t.string   "middlename"
@@ -60,15 +68,6 @@ ActiveRecord::Schema.define(:version => 20120506055452) do
     t.integer  "rank_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "days_carry_forward", :default => 0
-  end
-
-  create_table "tests", :force => true do |t|
-    t.date     "date"
-    t.integer  "student_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "rank_id",    :default => 0
   end
 
   create_table "year_end_reviews", :force => true do |t|

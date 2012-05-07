@@ -7,7 +7,7 @@ NTA::Application.routes.draw do
 
   resources :notes
 
-  resources :tests
+  resources :ranktests
 
   resources :attendances
 

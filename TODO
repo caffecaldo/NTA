@@ -11,6 +11,7 @@
   - edit sheet
     - click auto-selects field (might be handy everywhere)
     - change checkboxes to numeric fields
+    - add class_hours column
       - the idea is that a '1' could be put in for any given day, or the total # of hours could be entered in the last day of the month (total # of 'X's from paper attendance sheet)
       - exception would be when a student tests:
         - classes from start of month up to but not including test day - entered into box for the day just prior to test day
@@ -18,3 +19,15 @@
 
 - Notes
   - need to be able to specify student when adding/changing
+
+- Students
+	- types
+		- new student, no rank (Member)
+		- new student, existing rank from another dojo
+		- existing student, no rank (Member)
+		- existing student, existing rank
+	- new/edit - initial rank saved to Students
+	- show - initial rank & created_at date (not datetime)
+		- iterate through Tests.all for this student, display all Test days & rank tested in chronological order - if no tests, leave blank
+	- "carry forward" from old system -> edit Attendance sheet, put total # of classes at some date prior to official cutover to new system, eg, last day of last month
+	

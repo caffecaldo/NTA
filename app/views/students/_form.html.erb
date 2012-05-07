@@ -60,10 +60,6 @@
     <%= collection_select( :student, :rank_id, Rank.all, :id, :name ) %>
   </div>
   <div class="field">
-    <%= f.label :days_carry_forward %>
-    <%= f.text_field :days_carry_forward, :size => "5" %>
-  </div>
-  <div class="field">
     <%= f.label :sticky_listing %>
     <%= f.check_box :sticky_listing %>
   </div>
