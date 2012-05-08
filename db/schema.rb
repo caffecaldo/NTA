@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(:version => 20120508025552) do
     t.integer  "student_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "class_hours"
+    t.integer  "class_hours", :default => 0
   end
 
   create_table "libraries", :force => true do |t|
