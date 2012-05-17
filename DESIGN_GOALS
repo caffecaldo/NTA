@@ -1,0 +1,17 @@
+Design goals:
+
+- standalone system (at the dojo, not online, minimize security exposure)
+- track basic student info: name, address, phone, email, etc
+- track per-student rank test dates
+- manage rank test requirements (class hours/days and calendar months)
+- calculate student rank test eligibility based on class hours/days accrued and, where applicable, calendar months since last test
+- update student attendance records
+- per-student notes (free-form)
+- year-end reviews (free-form)
+- reports:
+  - which students have minimum time accrued since last test
+  - which students are close to having time accrued since last test
+    - less than 20 class hours/days, ordered by hours/days needed (ascending)
+  - optional: general attendance, all students, ordered ascending (most recent to least recent), possibly filtered by date range
+- optional: library (books/DVDs) sign-out tracking, who was loaned what and when were they loaned it (Note: if I can complete the above items, then doing this one will be trivial)
+- optional: being able to pull up an individual student's record, and being able to see at-a-glance how many hours/days they've accrued since their most recent test, as well as shortfall/excess for next rank

@@ -1,0 +1,32 @@
+<% today = Date.today %>
+<% first_of_month = today.beginning_of_month %>
+<% last_of_month = today.end_of_month %>
+<% date_a = first_of_month.step(last_of_month, 1).to_a %>
+<h2><%= today.strftime("%B %Y") %></h2>
+
+<table>
+  <tr>
+    <th>NAME</th>
+    <% date_a.each do |d| %>
+      <th><%= d.day %></th>
+    <% end %>
+  </tr>
+
+<% @students.each do |s| %>
+  <tr>
+    <td><%= s.firstname %> <%= s.lastname %></td>
+    <% stud_att = Attendance.where(:student_id => s.id) %>
+    <% date_a.each do |d| %>
+        <% if stud_att.where(:date => d).exists? %>
+          <td><%= check_box_tag s.id, d, true %></td>
+        <% else %>
+          <td><%= check_box_tag s.id, d, false %></td>
+        <% end %>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to "Home", root_path %>
