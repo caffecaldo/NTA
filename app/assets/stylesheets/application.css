@@ -10,9 +10,7 @@
  *
  *= require_self
  *= require dataTables/jquery.dataTables
- *= require_tree .
-*/
-
- *= require blueprint
  *= require jquery.ui.core
  *= require jquery.ui.theme
+ *= require_tree .
+*/
