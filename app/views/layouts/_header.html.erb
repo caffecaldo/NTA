@@ -1,5 +1,15 @@
-<header>
-  <nav class="round">
-	<h2><%= link_to "Neil's Total Aikido", root_path %></h2>
-  </nav>
-</header>
+<h2><%= link_to "Neil's Total Aikido", root_path %></h2>
+
+<table>
+	<th><%= link_to "Students", students_path %></li></th>
+	<th>|</th>
+    <th><%= link_to "Ranks", ranks_path %></th>
+    <th>|</th>
+    <th><%= link_to "Attendance", attendances_path %></th>
+    <th>|</th>
+    <th><%= link_to "Notes", notes_path %></th>
+    <th>|</th>
+    <th><%= link_to "Rank Tests", ranktests_path %></th>
+    <th>|</th>
+    <th><%= link_to "Library", libraries_path %></th>
+</table>    

@@ -3,12 +3,19 @@ class RanksController < ApplicationController
   # GET /ranks.xml
   def index
     @ranks = Rank.all
-
+  
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @ranks }
     end
   end
+
+  # def index
+  #   respond_to do |format|
+  #     format.html
+  #     format.json { render json: RanksDatatable.new(view_context) }
+  #   end
+  # end  
 
   # GET /ranks/1
   # GET /ranks/1.xml
