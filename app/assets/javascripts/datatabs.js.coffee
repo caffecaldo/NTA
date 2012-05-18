@@ -2,8 +2,10 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
-	oTable = $('#attendance').dataTable( {
-    "sScrollX": "100%",
-    "bScrollCollapse": true
-  } )
+	$('#basicDT').dataTable()
+jQuery ->
+	oTable = $('#fixedcolDT').dataTable( {
+      "sScrollX": "100%",
+      "bScrollCollapse": true
+    } )
   new FixedColumns(oTable)
