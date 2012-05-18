@@ -3,7 +3,7 @@ class RanktestsController < ApplicationController
   # GET /ranktests.xml
   def index
     #@ranktests = Test.all
-    @ranktests = Ranktest.all(:order => 'date DESC')
+    @ranktests = Ranktest.all(:order => 'testdate DESC')
     
 
     respond_to do |format|
@@ -74,7 +74,7 @@ class RanktestsController < ApplicationController
   # DELETE /ranktests/1
   # DELETE /ranktests/1.xml
   def destroy
-    @ranktest = Test.find(params[:id])
+    @ranktest = Ranktest.find(params[:id])
     @ranktest.destroy
 
     respond_to do |format|

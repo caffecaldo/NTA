@@ -12,15 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :date %>
-    <%= f.date_select :date, :start_year => Time.now.year - 10, :end_year => Time.now.year, :order =>[:month, :day, :year] %>
+    <%= f.label :test_date %>
+    <%= f.date_select :testdate, :start_year => Time.now.year - 10, :end_year => Time.now.year, :order =>[:month, :day, :year] %>
   </div>
   <div class="field">
     <%= f.label :student %>
     <%= collection_select( :ranktest, :student_id, Student.all(:order => 'lastname ASC'), :id, :fullname, {:prompt => true} ) %>
   </div>
   <div class="field">
-    <%= f.label :rank %>
+    <%= f.label :rank_tested %>
     <%= collection_select( :ranktest, :rank_id, Rank.all(:order => 'seq ASC'), :id, :name, {:prompt => true} ) %>
   </div>
   <div class="actions">

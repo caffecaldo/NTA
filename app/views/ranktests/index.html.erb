@@ -13,7 +13,7 @@
 <tbody>
 <% @ranktests.each do |ranktest| %>
   <tr>
-    <td align="center"><%= ranktest.date.strftime("%b-%d-%Y") %></td>
+    <td align="center"><%= ranktest.testdate.strftime("%b-%d-%Y") %></td>
     <td align="center"><%= link_to Student.find(ranktest.student_id).fullname, ranktest %></td>
     <td align="center"><%= Rank.find(ranktest.rank_id).name %></td>
     <td><%= link_to 'Edit', edit_ranktest_path(ranktest) %></td>
