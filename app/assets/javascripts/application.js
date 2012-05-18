@@ -13,4 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require dataTables/jquery.dataTables
+//= require dataTables/extras/FixedColumns
 //= require_tree .

@@ -7,7 +7,7 @@
 <table id="attendance">
 <thead>
   <tr>
-    <th>NAME</th>
+    <th>Name</th>
     <% date_a.each do |d| %>
       <th><%= d.day %></th>
     <% end %>
@@ -17,7 +17,7 @@
 <tbody>
 <% @students.each do |s| %>
   <tr>
-    <td><%= s.firstname %> <%= s.lastname %></td>
+    <td><%= s.revfullname %></td>
     <% stud_att = Attendance.where(:student_id => s.id) %>
     <% date_a.each do |d| %>
         <% if stud_att.where(:date => d).exists? %>
@@ -31,6 +31,3 @@
 </tbody>
 </table>
 
-<br />
-
-<%= link_to "Home", root_path %>
