@@ -10,13 +10,6 @@ class RanksController < ApplicationController
     end
   end
 
-  # def index
-  #   respond_to do |format|
-  #     format.html
-  #     format.json { render json: RanksDatatable.new(view_context) }
-  #   end
-  # end  
-
   # GET /ranks/1
   # GET /ranks/1.xml
   def show

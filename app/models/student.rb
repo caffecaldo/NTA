@@ -9,4 +9,7 @@ class Student < ActiveRecord::Base
   def fullname
     "#{firstname} #{lastname}"
   end
+  def revfullname
+    "#{lastname}, #{firstname}"
+  end
 end

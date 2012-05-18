@@ -4,14 +4,17 @@
 <% date_a = first_of_month.step(last_of_month, 1).to_a %>
 <h2><%= today.strftime("%B %Y") %></h2>
 
-<table>
+<table id="attendance">
+<thead>
   <tr>
     <th>NAME</th>
     <% date_a.each do |d| %>
       <th><%= d.day %></th>
     <% end %>
   </tr>
+</thead>
 
+<tbody>
 <% @students.each do |s| %>
   <tr>
     <td><%= s.firstname %> <%= s.lastname %></td>
@@ -25,6 +28,7 @@
     <% end %>
   </tr>
 <% end %>
+</tbody>
 </table>
 
 <br />
