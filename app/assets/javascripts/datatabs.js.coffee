@@ -4,6 +4,10 @@
 jQuery ->
 	$('#basicDT').dataTable()
 jQuery ->
+	$('#ranktestsDT').dataTable( {
+	"aaSorting": [[ 0, "desc" ]]
+	})
+jQuery ->
 	oTable = $('#fixedcolDT').dataTable( {
       "sScrollX": "100%",
       "bScrollCollapse": true
