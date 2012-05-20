@@ -12,5 +12,6 @@
  *= require dataTables/jquery.dataTables
  *= require jquery.ui.core
  *= require jquery.ui.theme
+ *= require jquery.ui.datepicker
  *= require_tree .
 */
