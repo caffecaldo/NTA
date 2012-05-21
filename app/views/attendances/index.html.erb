@@ -20,7 +20,7 @@
     <td><%= s.revfullname %></td>
     <% stud_att = Attendance.where(:student_id => s.id) %>
     <% date_a.each do |d| %>
-        <% if stud_att.where(:date => d).exists? %>
+        <% if stud_att.where(:class_date => d).exists? %>
           <td><%= check_box_tag s.id, d, true %></td>
         <% else %>
           <td><%= check_box_tag s.id, d, false %></td>
