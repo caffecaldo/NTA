@@ -52,6 +52,7 @@ GEM
       multi_json (~> 1.0)
     hike (1.2.1)
     i18n (0.6.0)
+    jeditable-rails (0.1.1)
     journey (1.0.3)
     jquery-rails (2.0.2)
       railties (>= 3.2.0, < 5.0)
@@ -122,6 +123,7 @@ PLATFORMS
 DEPENDENCIES
   blueprint-rails (~> 0.1.2)
   coffee-rails (~> 3.2.1)
+  jeditable-rails
   jquery-datatables-rails!
   jquery-rails
   jquery-ui-rails
