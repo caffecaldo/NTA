@@ -16,4 +16,7 @@ jQuery ->
       "sScrollX": "100%",
       "bScrollCollapse": true
     } )
-  new FixedColumns(oTable)
+  new FixedColumns(oTable, {
+		"iLeftColumns": 1,
+		"iRightColumns": 1
+ 	} )
