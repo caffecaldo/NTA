@@ -21,9 +21,9 @@
     <% stud_att = Attendance.where(:student_id => s.id) %>
     <% date_a.each do |d| %>
         <% if stud_att.where(:class_date => d).exists? %>
-          <td><%= text_field_tag s.id, stud_att.where(:class_date => d).class_hours, :size => 1 %></td>
+          <td><%= editable_field @attendance, :class_hours %></td>
         <% else %>
-          <td><%= text_field_tag s.id, nil, :placeholder => "-", :size => 1 %></td>
+          <td><%= editable_field @attendance, :class_hours %></td>
         <% end %>
     <% end %>
   </tr>

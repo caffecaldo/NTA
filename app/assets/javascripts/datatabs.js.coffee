@@ -6,6 +6,8 @@
 #    altFormat: "yy-mm-dd"
 #    })
 jQuery ->
+  $('.best_in_place').best_in_place()
+jQuery ->
 	$('#basicDT').dataTable()
 jQuery ->
 	$('#ranktestsDT').dataTable( {

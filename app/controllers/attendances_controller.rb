@@ -59,18 +59,34 @@ class AttendancesController < ApplicationController
 
   # PUT /attendances/1
   # PUT /attendances/1.xml
+#  def update
+#    @attendance = Attendance.find(params[:id])
+#
+#    respond_to do |format|
+#      if @attendance.update_attributes(params[:attendance])
+#        format.html { redirect_to(@attendance, :notice => 'Attendance was successfully updated.') }
+#        format.xml  { head :ok }
+#      else
+#        format.html { render :action => "edit" }
+#        format.xml  { render :xml => @attendance.errors, :status => :unprocessable_entity }
+#      end
+#    end
+#  end
+
+  # PUT method
+  # Update via editable_field
   def update
     @attendance = Attendance.find(params[:id])
+    @attendance.update_attributes!(params[:attendance])
 
-    respond_to do |format|
-      if @attendance.update_attributes(params[:attendance])
-        format.html { redirect_to(@attendance, :notice => 'Attendance was successfully updated.') }
-        format.xml  { head :ok }
+    format.html {
+      if request.xhr?
+        # *** respond with the new value ***
+        render :text => params[:attendance].values.first
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @attendance.errors, :status => :unprocessable_entity }
+        redirect_to(@attendance, :notice => 'Attendance was successfully updated.')
       end
-    end
+      }
   end
 
   # DELETE /attendances/1
