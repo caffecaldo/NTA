@@ -18,12 +18,12 @@
 <% @students.each do |s| %>
   <tr>
     <td><%= s.revfullname %></td>
-    <% stud_att = Attendance.where(:student_id => s.id) %>
     <% date_a.each do |d| %>
-        <% if stud_att.where(:class_date => d).exists? %>
-          <td><%= editable_field @attendance, :class_hours %></td>
+      <% student_attend_date = Attendance.find_by_student_id_and_class_date(s.id, d) %>
+        <% if student_attend_date.nil? %>
+          <td><%= link_to "--", add_attendance_path(d, s.id) %></td>
         <% else %>
-          <td><%= editable_field @attendance, :class_hours %></td>
+          <td><%= link_to student_attend_date.class_hours, edit_attendance_path(student_attend_date.id) %></td>
         <% end %>
     <% end %>
   </tr>

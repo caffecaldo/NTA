@@ -1,13 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Class date:</b>
-  <%= @attendance.class_date %>
-</p>
+  <% a = @attendance %>
+  <% s = Student.find(a.student_id) %>
+  <h3><%= a.class_date.strftime("%B %d, %Y") %> - <%= s.fullname %></h3>
 
 <p>
-  <b>Student:</b>
-  <%= @attendance.student_id %>
+  <b>Class hours:</b>
+  <%= @attendance.class_hours %>
 </p>
 
 

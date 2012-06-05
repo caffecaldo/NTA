@@ -11,13 +11,19 @@
     </div>
   <% end %>
 
+  <% a = @attendance %>
+  <% s = Student.find(a.student_id) %>
+  <h3><%= a.class_date.strftime("%B %d, %Y") %> - <%= s.fullname %></h3>
+
   <div class="field">
-    <%= f.label :class_date %><br />
-    <%= f.date_select :class_date %>
+    <%= f.hidden_field :class_date %>
   </div>
   <div class="field">
-    <%= f.label :student_id %><br />
-    <%= f.text_field :student_id %>
+    <%= f.hidden_field :student_id %>
+  </div>
+  <div class="field">
+    <%= f.label :class_hours %>:
+    <%= f.text_field :class_hours, :size => "3" %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -12,42 +12,42 @@
 
 <p>
   <b>Lastname:</b>
-  <%= @student.lastname %>
+  <%= best_in_place @student, :lastname %>
 </p>
 
 <p>
   <b>Address1:</b>
-  <%= @student.address1 %>
+  <%= best_in_place @student, :address1 %>
 </p>
 
 <p>
   <b>Address2:</b>
-  <%= @student.address2 %>
+  <%= best_in_place @student, :address2 %>
 </p>
 
 <p>
   <b>Address3:</b>
-  <%= @student.address3 %>
+  <%= best_in_place @student, :address3 %>
 </p>
 
 <p>
   <b>City:</b>
-  <%= @student.city %>
+  <%= best_in_place @student, :city %>
 </p>
 
 <p>
   <b>State:</b>
-  <%= @student.state %>
+  <%= best_in_place @student, :state %>
 </p>
 
 <p>
   <b>Zip:</b>
-  <%= @student.zip %>
+  <%= best_in_place @student, :zip %>
 </p>
 
 <p>
   <b>Email:</b>
-  <a href=mailto:<%= @student.email %>><%= @student.email %></a>
+  <%= best_in_place @student, :email %>
 </p>
 
 <p>

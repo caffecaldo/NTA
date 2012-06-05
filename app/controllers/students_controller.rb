@@ -1,4 +1,6 @@
 class StudentsController < ApplicationController
+  #respond_to :html, :json
+
   # GET /students
   # GET /students.xml
   def index
@@ -54,8 +56,21 @@ class StudentsController < ApplicationController
     end
   end
 
-  # PUT /students/1
-  # PUT /students/1.xml
+#  # PUT /students/1
+#  # PUT /students/1.xml
+#  def update
+#    @student = Student.find(params[:id])
+#
+#    respond_to do |format|
+#      if @student.update_attributes(params[:student])
+#        format.html { redirect_to(@student, :notice => 'Student was successfully updated.') }
+#        format.xml  { head :ok }
+#      else
+#        format.html { render :action => "edit" }
+#        format.xml  { render :xml => @student.errors, :status => :unprocessable_entity }
+#      end
+#    end
+#  end
   def update
     @student = Student.find(params[:id])
 
@@ -63,12 +78,15 @@ class StudentsController < ApplicationController
       if @student.update_attributes(params[:student])
         format.html { redirect_to(@student, :notice => 'Student was successfully updated.') }
         format.xml  { head :ok }
+        format.json { respond_with_bip(@student) }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @student.errors, :status => :unprocessable_entity }
+        format.json { respond_with_bip(@student) }
       end
     end
   end
+
 
   # DELETE /students/1
   # DELETE /students/1.xml

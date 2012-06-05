@@ -11,6 +11,14 @@ NTA::Application.routes.draw do
 
   resources :attendances
 
+  match 'attendances/new/:class_date/:student_id' => 'Attendances#new', :as => :add_attendance
+
+  #resources :attendances do
+  #  member do
+  #    put :set_class_hours
+  #  end
+  #end
+
   resources :ranks
 
   get "home/index"
