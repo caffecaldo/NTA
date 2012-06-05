@@ -9,6 +9,12 @@ NTA::Application.routes.draw do
 
   resources :ranktests
 
+  #this_month = Date.today.strftime("%Y-%m")
+
+  match 'attendances' => redirect('/attendances/' + Date.today.strftime("%Y-%m"))
+
+  match 'attendances/:year_month' => 'Attendances#index'
+
   resources :attendances
 
   match 'attendances/new/:class_date/:student_id' => 'Attendances#new', :as => :add_attendance

@@ -1,14 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-  <% a = @attendance %>
-  <% s = Student.find(a.student_id) %>
-  <h3><%= a.class_date.strftime("%B %d, %Y") %> - <%= s.fullname %></h3>
+  <% attendance = @attendance %>
+  <% student = Student.find(attendance.student_id) %>
+  <h3><%= attendance.class_date.strftime("%B %d, %Y") %> - <%= student.fullname %></h3>
 
 <p>
   <b>Class hours:</b>
-  <%= @attendance.class_hours %>
+  <%= attendance.class_hours %>
 </p>
 
 
 <%= link_to 'Edit', edit_attendance_path(@attendance) %> |
-<%= link_to 'Back', attendances_path %>
+<%= link_to 'Back', attendances_path %> |
+<%= link_to 'Delete', attendance, :confirm => 'Are you sure?', :method => :delete %>

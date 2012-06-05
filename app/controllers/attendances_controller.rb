@@ -23,6 +23,7 @@ class AttendancesController < ApplicationController
   def index
     @attendances = Attendance.all
     @students    = Student.all
+    @year_month = params[:year_month]
 
     respond_to do |format|
       format.html # index.html.erb
