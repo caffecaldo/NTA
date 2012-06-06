@@ -21,9 +21,9 @@
     <% date_a.each do |d| %>
       <% student_attend_date = Attendance.find_by_student_id_and_class_date(s.id, d) %>
         <% if student_attend_date.nil? %>
-          <td><%= link_to "__", add_attendance_path(d, s.id) %></td>
+          <td align=right><%= link_to "__", add_attendance_path(d, s.id) %></td>
         <% else %>
-          <td><%= link_to student_attend_date.class_hours, edit_attendance_path(student_attend_date.id) %></td>
+          <td align=right><%= link_to student_attend_date.class_hours, edit_attendance_path(student_attend_date.id) %></td>
         <% end %>
     <% end %>
   </tr>
