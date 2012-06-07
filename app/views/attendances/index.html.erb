@@ -16,7 +16,8 @@
 <table id="fixedcolDT">
 <thead>
   <tr>
-    <th>Name</th>
+    <th>First</th>
+    <th>Last</th>
     <% date_a.each do |d| %>
       <th><%= d.day %></th>
     <% end %>
@@ -26,7 +27,8 @@
 <tbody>
 <% @students.each do |s| %>
   <tr>
-    <td><%= s.revfullname %></td>
+    <td><%= s.firstname %></td>
+    <td><%= s.lastname %></td>
     <% date_a.each do |d| %>
       <% student_attend_date = Attendance.find_by_student_id_and_class_date(s.id, d) %>
         <% if student_attend_date.nil? %>

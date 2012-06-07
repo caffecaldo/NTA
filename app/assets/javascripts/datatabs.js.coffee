@@ -26,10 +26,11 @@ jQuery ->
 $(document).ready ->
 	oTable = $("#fixedcolDT").dataTable( {
       "sScrollX": "100%",
-      "bScrollCollapse": true
+      "bScrollCollapse": true,
+      "aaSorting": [[ 1, "desc" ]]
     } )
     new FixedColumns(oTable, {
-		"iLeftColumns": 1,
+		"iLeftColumns": 2,
 		"iRightColumns": 1
  	} )
 	$("td", oTable.fnGetNodes()).hover (->
