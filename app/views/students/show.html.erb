@@ -63,7 +63,7 @@
 	  <td><%= Rank.find(@student.rank_id).name %></td>
 	  <td><%= @student.created_at.strftime("%m/%d/%Y") %></td>
 	</tr>
-    <% Ranktest.find(:all, :conditions => { :student_id => @student.id }).each do |student_test| %>
+    <% Ranktest.find(:all, :conditions => {:student_id => @student.id }).each do |student_test| %>
 	<tr>
 	  <td><%= Rank.find(student_test.rank_id).name %></td>
 	  <td><%= student_test.testdate.strftime("%m/%d/%Y") %></td>

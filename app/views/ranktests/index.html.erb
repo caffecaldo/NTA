@@ -3,7 +3,8 @@
 <table id="ranktestsDT">
 <thead>  <tr>
     <th>Date</th>
-    <th>Student</th>
+    <th>First name</th>
+    <th>Last name</th>
     <th>Rank tested</th>
     <th></th>
     <th></th>
@@ -12,9 +13,11 @@
 
 <tbody>
 <% @ranktests.each do |ranktest| %>
+  <% student = Student.find(ranktest.student_id) %>
   <tr>
     <td align="center"><%= ranktest.testdate.strftime("%b-%d-%Y") %></td>
-    <td align="center"><%= link_to Student.find(ranktest.student_id).fullname, ranktest %></td>
+    <td align="center"><%= link_to student.firstname, ranktest %></td>
+    <td align="center"><%= link_to student.lastname, ranktest %></td>
     <td align="center"><%= Rank.find(ranktest.rank_id).name %></td>
     <td><%= link_to 'Edit', edit_ranktest_path(ranktest) %></td>
     <td><%= link_to 'Delete', ranktest, :confirm => "Are you sure you want to delete the #{Rank.find(ranktest.rank_id).name} rank test for #{Student.find(ranktest.student_id).fullname}?", :method => :delete %></td>
