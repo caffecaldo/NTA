@@ -12,4 +12,8 @@
     <th><%= link_to "Rank Tests", ranktests_path %></th>
     <th>|</th>
     <th><%= link_to "Library", libraries_path %></th>
-</table>    
+</table>
+
+<% if session[:yearmonth].nil? %>
+  <% session[:yearmonth] = Date.today.strftime("%Y-%m") %>
+<% end %>

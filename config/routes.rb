@@ -11,13 +11,13 @@ NTA::Application.routes.draw do
 
   #this_month = Date.today.strftime("%Y-%m")
 
-  match 'attendances' => redirect('/attendances/' + Date.today.strftime("%Y-%m"))
-
-  match 'attendances/:year_month' => 'Attendances#index'
+  #match 'attendances' => redirect('/attendances/' + Date.today.strftime("%Y-%m"))
 
   resources :attendances
 
-  match 'attendances/new/:class_date/:student_id' => 'Attendances#new', :as => :add_attendance
+  #match 'attendances/:year_month' => 'Attendances#index'
+
+  #match 'attendances/new/:class_date/:student_id' => 'Attendances#new', :as => :add_attendance
 
   #resources :attendances do
   #  member do

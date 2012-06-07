@@ -1,8 +1,10 @@
-<% today = (@year_month + '-01').to_date %>
+<% today = (session[:yearmonth] + '-01').to_date %>
 <% first_of_month = today.beginning_of_month %>
 <% last_of_month = today.end_of_month %>
 <% date_a = first_of_month.step(last_of_month, 1).to_a %>
 <h2><%= today.strftime("%B %Y") %></h2>
+
+<%= session[:yearmonth] %>
 
 <table id="fixedcolDT">
 <thead>
@@ -21,9 +23,14 @@
     <% date_a.each do |d| %>
       <% student_attend_date = Attendance.find_by_student_id_and_class_date(s.id, d) %>
         <% if student_attend_date.nil? %>
-          <td align=right><%= link_to "__", add_attendance_path(d, s.id) %></td>
+          <td align=right><%= link_to "__",
+            :action => 'new',
+            :class_date => d,
+            :student_id => s.id %></td>
         <% else %>
-          <td align=right><%= link_to student_attend_date.class_hours, edit_attendance_path(student_attend_date.id) %></td>
+          <td align=right><%= link_to student_attend_date.class_hours,
+            :action => 'edit', 
+            :id => student_attend_date.id %></td>
         <% end %>
     <% end %>
   </tr>

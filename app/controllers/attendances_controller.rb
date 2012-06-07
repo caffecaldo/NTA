@@ -1,5 +1,14 @@
 class AttendancesController < ApplicationController
 
+  before_filter :get_set_yearmonth
+
+  def get_set_yearmonth
+    @yearmonth = session[:yearmonth]  # format is yyyy-mm, eg, 2012-06
+    if @yearmonth.nil?
+      @yearmonth = Date.today.strftime("%Y-%m")
+    end
+  end
+
   #respond_to :html, :json
 
 
@@ -23,7 +32,6 @@ class AttendancesController < ApplicationController
   def index
     @attendances = Attendance.all
     @students    = Student.all
-    @year_month = params[:year_month]
 
     respond_to do |format|
       format.html # index.html.erb
