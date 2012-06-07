@@ -10,6 +10,10 @@
 jQuery ->
 	$('#basicDT').dataTable()
 jQuery ->
+	$('#studentsDT').dataTable( {
+	"aaSorting": [[ 1, "asc" ]]
+	})
+jQuery ->
 	$('#ranktestsDT').dataTable( {
 	"aaSorting": [[ 0, "desc" ]]
 	})
