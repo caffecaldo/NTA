@@ -15,8 +15,6 @@
   <% s = Student.find(a.student_id) %>
   <h3><%= a.class_date.strftime("%B %d, %Y") %> - <%= s.fullname %></h3>
 
-  <%= session[:yearmonth] %>
-
   <div class="field">
     <%= f.hidden_field :class_date %>
   </div>

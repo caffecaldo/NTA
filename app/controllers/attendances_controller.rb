@@ -3,9 +3,14 @@ class AttendancesController < ApplicationController
   before_filter :get_set_yearmonth
 
   def get_set_yearmonth
-    @yearmonth = session[:yearmonth]  # format is yyyy-mm, eg, 2012-06
-    if @yearmonth.nil?
-      @yearmonth = Date.today.strftime("%Y-%m")
+    # yearmonth format is yyyy-mm, eg, 2012-06
+    yearmonth = params[:yearmonth]
+    if yearmonth.nil?
+      if session[:yearmonth].nil?
+        session[:yearmonth] = Date.today.strftime("%Y-%m")
+      end
+    else
+      session[:yearmonth] = yearmonth
     end
   end
 

@@ -5,7 +5,7 @@
 	<th>|</th>
     <th><%= link_to "Ranks", ranks_path %></th>
     <th>|</th>
-    <th><%= link_to "Attendance", attendances_path %></th>
+    <th><%= link_to "Attendance", attendances_path(:yearmonth => Date.today.strftime("%Y-%m")) %></th>
     <th>|</th>
     <th><%= link_to "Notes", notes_path %></th>
     <th>|</th>
@@ -13,7 +13,3 @@
     <th>|</th>
     <th><%= link_to "Library", libraries_path %></th>
 </table>
-
-<% if session[:yearmonth].nil? %>
-  <% session[:yearmonth] = Date.today.strftime("%Y-%m") %>
-<% end %>

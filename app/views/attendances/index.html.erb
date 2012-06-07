@@ -2,9 +2,16 @@
 <% first_of_month = today.beginning_of_month %>
 <% last_of_month = today.end_of_month %>
 <% date_a = first_of_month.step(last_of_month, 1).to_a %>
-<h2><%= today.strftime("%B %Y") %></h2>
+<h2><% today.strftime("%B %Y") %></h2>
 
-<%= session[:yearmonth] %>
+<h2>
+  <%= link_to "<<", attendances_path(:yearmonth => today.prev_year.strftime("%Y-%m")) %> |
+  <%= link_to "<", attendances_path(:yearmonth => today.prev_month.strftime("%Y-%m")) %> |
+  <%= today.strftime("%B %Y") %> |
+  <%= link_to ">", attendances_path(:yearmonth => today.next_month.strftime("%Y-%m")) %> |
+  <%= link_to ">>", attendances_path(:yearmonth => today.next_year.strftime("%Y-%m")) %>
+</h2>
+<h3><%= link_to "Return to #{Date.today.strftime("%B %Y")}", attendances_path(:yearmonth => Date.today.strftime("%Y-%m")) %></h3>
 
 <table id="fixedcolDT">
 <thead>
