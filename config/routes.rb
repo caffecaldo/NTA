@@ -1,4 +1,5 @@
 NTA::Application.routes.draw do
+  match 'students/report' => 'Students#report'
   resources :students
 
   resources :libraries
@@ -26,6 +27,8 @@ NTA::Application.routes.draw do
   #end
 
   resources :ranks
+
+  resources :reports
 
   get "home/index"
   

@@ -13,6 +13,18 @@ class StudentsController < ApplicationController
     end
   end
 
+  # GET /students/reports
+  # GET /students/reports.xml
+  def report
+    #@students = Student.all
+    @students = Student.all(:order => 'lastname ASC')
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @students }
+    end
+  end
+
   # GET /students/1
   # GET /students/1.xml
   def show
