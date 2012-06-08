@@ -7,13 +7,13 @@
 #    })
 #jQuery ->
 #  $('.best_in_place').best_in_place()
-jQuery ->
+$(document).ready ->
 	$('#basicDT').dataTable()
-jQuery ->
+$(document).ready ->
 	$('#studentsDT').dataTable( {
 	"aaSorting": [[ 1, "asc" ]]
 	})
-jQuery ->
+$(document).ready ->
 	$('#ranktestsDT').dataTable( {
 	"aaSorting": [[ 0, "desc" ]]
 	})

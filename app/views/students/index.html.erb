@@ -6,10 +6,10 @@
 <table id="studentsDT">
 <thead>
   <tr>
+    <th>Rank</th>
     <th>First</th>
     <th>Last</th>
     <th>Email</th>
-    <th>Rank</th>
     <th></th>
     <th></th>
   </tr>
@@ -18,12 +18,11 @@
 <tbody>
 <% @students.each do |student| %>
   <tr>
+    <% rank_id = Ranktest.where(:student_id => student.id).order(:testdate).last.rank_id %>
+    <td align="center"><%= Rank.find(rank_id).name %></td>
     <td><%= link_to student.firstname, student %></td>
     <td><%= link_to student.lastname, student %></td>
     <td><a href=mailto:<%= student.email %>><%= student.email %></a></td>
-    <% foo = Ranktest.maximum(:id) %>
-    <% puts foo %>
-    <td align="center"><%= Rank.find(Ranktest.where(:student_id => student.id).order(:testdate).last.rank_id).name %></td>
     <td><%= link_to 'Edit', edit_student_path(student) %></td>
     <td><%= link_to 'Delete', student, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

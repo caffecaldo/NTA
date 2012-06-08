@@ -5,3 +5,7 @@
 #    $('#ranktest_testdate').datepicker({
 #    altFormat: "yy-mm-dd"
 #    })
+#$(document).ready ->
+#	$('#ranktestsDT').dataTable( {
+#	"aaSorting": [[ 0, "desc" ]]
+#	})
