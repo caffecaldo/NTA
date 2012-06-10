@@ -21,6 +21,7 @@
     <% date_a.each do |d| %>
       <th><%= d.day %></th>
     <% end %>
+    <th>Total</th>
   </tr>
 </thead>
 
@@ -42,6 +43,8 @@
           :id => student_attend_date.id %></td>
       <% end %>
     <% end %>
+    <% month_total = Attendance.sum(:class_hours, :conditions => ['student_id = ? AND class_date >= ? AND class_date <= ?', s.id, first_of_month, last_of_month]) %>
+    <td align=right><%= month_total %>
   </tr>
 <% end %>
 </tbody>
