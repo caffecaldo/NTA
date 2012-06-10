@@ -44,6 +44,14 @@ $(document).ready ->
 	), ->
 		$("td.highlighted", oTable.fnGetNodes()).removeClass "highlighted"
 
+#$(document).ready ->
+#  oTable = $("#fixedcolDT").dataTable(bSortClasses: false)
+#  oTable.$("td").hover (->
+#    iCol = $("td", @parentNode).index(this) % 5
+#    $("td:nth-child(" + (iCol + 1) + ")", oTable.$("tr")).addClass "highlighted"
+#  ), ->
+#    oTable.$("td.highlighted").removeClass "highlighted"
+
 
 #$(document).ready(function() {
 #	var oTable = $('#example').dataTable( {

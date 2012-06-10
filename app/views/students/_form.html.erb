@@ -55,9 +55,9 @@
     <%= f.label :birthdate %>
     <%= f.date_select :birthdate, :start_year => Time.now.year - 100, :end_year => Time.now.year, :order =>[:month, :day, :year] %>
   </div>
-  <div class="field" >
-	<%= f.label :rank %>
-    <%= collection_select( :student, :rank_id, Rank.all, :id, :name ) %>
+  <div class="field">
+    <%= f.label :join_date %>
+    <%= f.date_select :join_date, :start_year => Time.now.year - 50, :end_year => Time.now.year + 1, :order =>[:month, :day, :year] %>
   </div>
   <div class="field">
     <%= f.label :sticky_listing %>

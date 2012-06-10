@@ -30,17 +30,17 @@
     <td><%= s.firstname %></td>
     <td><%= s.lastname %></td>
     <% date_a.each do |d| %>
-      <% student_attend_date = Attendance.find_by_student_id_and_class_date(s.id, d) %>
-        <% if student_attend_date.nil? %>
-          <td align=right><%= link_to "__",
-            :action => 'new',
-            :class_date => d,
-            :student_id => s.id %></td>
-        <% else %>
-          <td align=right><%= link_to student_attend_date.class_hours,
-            :action => 'edit', 
-            :id => student_attend_date.id %></td>
-        <% end %>
+      <% student_attend_date = Attendance.where('student_id = ? AND class_date = ?', s.id, d).first %>
+      <% if student_attend_date.nil? %>
+        <td align=right><%= link_to "__",
+          :action => 'new',
+          :class_date => d,
+          :student_id => s.id %></td>
+      <% else %>
+        <td align=right><%= link_to student_attend_date.class_hours,
+          :action => 'edit', 
+          :id => student_attend_date.id %></td>
+      <% end %>
     <% end %>
   </tr>
 <% end %>

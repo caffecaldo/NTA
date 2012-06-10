@@ -14,8 +14,13 @@
 <tbody>
 <% @students.each do |student| %>
   <tr>
-    <% latest_rank_id = Ranktest.where(:student_id => student.id).order(:testdate).last %>
-    <td align="center"><%= Rank.find(latest_rank_id.rank_id).name %></td>
+    <% last_ranktest = Ranktest.where(:student_id => student.id).order(:testdate).last %>
+    <% if last_ranktest.nil? %>
+      <% rank_id = student.rank_id %>
+    <% else %>
+      <% rank_id = last_ranktest.rank_id %>
+    <% end %>
+    <td align="center"><%= Rank.find(rank_id).name %></td>
     <td align="center"><%= link_to student.firstname, student %></td>
     <td align="center"><%= link_to student.lastname, student %></td>
     <td align="center"><%= 'filler1' %></td>

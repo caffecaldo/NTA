@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120521043044) do
+ActiveRecord::Schema.define(:version => 20120610025718) do
 
   create_table "attendances", :force => true do |t|
     t.date     "class_date"
@@ -67,9 +67,9 @@ ActiveRecord::Schema.define(:version => 20120521043044) do
     t.text     "additional_notes"
     t.boolean  "sticky_listing"
     t.boolean  "do_not_disturb"
-    t.integer  "rank_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "join_date",        :default => '1970-01-01'
   end
 
   create_table "year_end_reviews", :force => true do |t|
