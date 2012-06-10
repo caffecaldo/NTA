@@ -18,13 +18,7 @@
 <tbody>
 <% @students.each do |student| %>
   <tr>
-    <% last_ranktest = Ranktest.where(:student_id => student.id).order(:testdate).last %>
-    <% if last_ranktest.nil? %>
-      <% rank_name = 'Member' %>
-    <% else %>
-      <% rank_name = Rank.find(last_ranktest.rank_id).name %>
-    <% end %>
-    <td align="center"><%= rank_name %></td>
+    <%= render 'get_rank_name', :student => student %>
     <td><%= link_to student.firstname, student %></td>
     <td><%= link_to student.lastname, student %></td>
     <td><a href=mailto:<%= student.email %>><%= student.email %></a></td>
