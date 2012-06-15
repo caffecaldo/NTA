@@ -17,15 +17,15 @@
     <% last_ranktest = Ranktest.where(:student_id => student.id).order(:testdate).last %>
     <% if last_ranktest.nil? %>
       <% rank_name = 'Member' %>
-      <% hours = '-' %>
-      <% months = '-' %>
+      <% next_rank_seq = 1 %>
     <% else %>
       <% rank = Rank.find(last_ranktest.rank_id) %>
       <% rank_name = rank.name %>
-      <% hours_delta = Attendance.sum(:class_hours, :conditions => ['student_id = ? AND class_date >= ?', student.id, last_ranktest.testdate]) - rank.class_hours_required %>
-      <% hours = hours_delta %>
-      <% month_delta = ((Date.today - last_ranktest.testdate).to_int / 30) - rank.cal_months_required %>
-      <% months = month_delta %>
+      <% next_rank_seq = rank.seq + 1 %>
+      <% hours_delta = Attendance.sum(:class_hours, :conditions => ['student_id = ? AND class_date >= ?', student.id, last_ranktest.testdate]) - Rank.find_by_seq(next_rank_seq).class_hours_required %>
+    <% hours = hours_delta %>
+    <% month_delta = ((Date.today - last_ranktest.testdate).to_int / 30) - rank.cal_months_required %>
+    <% months = month_delta %>
     <% end %>
     <td align="center"><%= rank_name %></td>
     <td align="center"><%= link_to student.firstname, student %></td>
