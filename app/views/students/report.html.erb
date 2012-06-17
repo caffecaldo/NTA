@@ -3,6 +3,7 @@
 <table id="studentsDT">
 <thead>
   <tr>
+    <th>Rank<br />ID</th>
     <th>Current<br />rank</th>
     <th>First<br />name</th>
     <th>Last<br />name</th>
@@ -17,16 +18,19 @@
     <% last_ranktest = Ranktest.where(:student_id => student.id).order(:testdate).last %>
     <% if last_ranktest.nil? %>
       <% rank_name = 'Member' %>
+      <% rank_seq = 0 %>
       <% next_rank_seq = 1 %>
     <% else %>
       <% rank = Rank.find(last_ranktest.rank_id) %>
       <% rank_name = rank.name %>
+      <% rank_seq = rank.seq %>
       <% next_rank_seq = rank.seq + 1 %>
       <% hours_delta = Attendance.sum(:class_hours, :conditions => ['student_id = ? AND class_date >= ?', student.id, last_ranktest.testdate]) - Rank.find_by_seq(next_rank_seq).class_hours_required %>
     <% hours = hours_delta %>
     <% month_delta = ((Date.today - last_ranktest.testdate).to_int / 30) - rank.cal_months_required %>
     <% months = month_delta %>
     <% end %>
+    <td><%= rank_seq %></td>
     <td align="center"><%= rank_name %></td>
     <td align="center"><%= link_to student.firstname, student %></td>
     <td align="center"><%= link_to student.lastname, student %></td>
