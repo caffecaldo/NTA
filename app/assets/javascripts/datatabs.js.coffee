@@ -11,7 +11,11 @@ $(document).ready ->
 	$('#basicDT').dataTable()
 $(document).ready ->
 	$('#studentsDT').dataTable( {
-	"aaSorting": [[ 1, "asc" ]]
+	"aaSorting": [[ 1, "desc" ]]
+	"aoColumnDefs": [ 
+      { "bVisible": false, "aTargets": [ 0 ] }
+      { "iDataSort": 0, "aTargets": [ 1 ] }
+      ]
 	})
 $(document).ready ->
 	$('#ranktestsDT').dataTable( {

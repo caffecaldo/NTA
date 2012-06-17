@@ -6,6 +6,7 @@
 <table id="studentsDT">
 <thead>
   <tr>
+    <th align=left>Rank ID</th>
     <th align=left>Rank</th>
     <th align=left>First<br />name</th>
     <th align=left>Last<br />name</th>
@@ -22,11 +23,15 @@
     <% last_ranktest = Ranktest.where(:student_id => student.id).order(:testdate).last %>
     <% if last_ranktest.nil? %>
       <% rank_name = 'Member' %>
+      <% rank_seq = 0 %>
       <% rank_test_date = student.join_date.strftime( "%m/%d/%Y" ) %>
     <% else %>
-      <% rank_name = Rank.find(last_ranktest.rank_id).name %>
+      <% rank = Rank.find(last_ranktest.rank_id) %>
+      <% rank_name = rank.name %>
+      <% rank_seq = rank.seq %>
       <% rank_test_date = last_ranktest.testdate.strftime( "%m/%d/%Y" ) %>
     <% end %>
+    <td><%= rank_seq %></td>
     <td align=left><%= rank_name %></td>
     <td><%= link_to student.firstname, student %></td>
     <td><%= link_to student.lastname, student %></td>
