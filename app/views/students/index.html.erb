@@ -6,10 +6,11 @@
 <table id="studentsDT">
 <thead>
   <tr>
-    <th>Rank</th>
-    <th>First</th>
-    <th>Last</th>
-    <th>Email</th>
+    <th align=left>Rank</th>
+    <th align=left>First<br />name</th>
+    <th align=left>Last<br />name</th>
+    <th align=left>Last<br />class</th>
+    <th align=left>Last<br />promotion</th>
     <th></th>
     <th></th>
   </tr>
@@ -21,13 +22,22 @@
     <% last_ranktest = Ranktest.where(:student_id => student.id).order(:testdate).last %>
     <% if last_ranktest.nil? %>
       <% rank_name = 'Member' %>
+      <% rank_test_date = student.join_date.strftime( "%m/%d/%Y" ) %>
     <% else %>
       <% rank_name = Rank.find(last_ranktest.rank_id).name %>
+      <% rank_test_date = last_ranktest.testdate.strftime( "%m/%d/%Y" ) %>
     <% end %>
-    <td align="center"><%= rank_name %></td>
+    <td align=left><%= rank_name %></td>
     <td><%= link_to student.firstname, student %></td>
     <td><%= link_to student.lastname, student %></td>
-    <td><a href=mailto:<%= student.email %>><%= student.email %></a></td>
+    <% last_class = Attendance.find(:last, :order => :class_date, :conditions => ['student_id = ?', student.id]) %>
+    <% if last_class.nil? %>
+      <% last_class_date = student.join_date.strftime( "%m/%d/%Y" ) %>
+    <% else %>
+      <% last_class_date = last_class.class_date.strftime( "%m/%d/%Y" ) %>
+    <% end %>
+    <td><%= last_class_date %></td>
+    <td><%= rank_test_date %> </td>
     <td><%= link_to 'Edit', edit_student_path(student) %></td>
     <td><%= link_to 'Delete', student, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
