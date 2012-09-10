@@ -60,19 +60,19 @@
   <%= @student.join_date.strftime( "%m/%d/%Y" ) %>
 </p>
 
-<% rank_tests = Ranktest.find_all_by_student_id(@student.id, :order => 'testdate ASC') %>
+<% promotions = Promotion.find_all_by_student_id(@student.id, :order => 'testdate ASC') %>
 
 <p>
   <b>Rank history:</b>
-  <% if rank_tests.empty? %>
+  <% if promotions.empty? %>
     <i>- none -</i>
   <% else %>
     <table>
   	<tr><th>Rank</th><th>Date</th></tr>
-    <% Ranktest.find_all_by_student_id(@student.id, :order => 'testdate ASC').each do | student_test| %> 
+    <% Promotion.find_all_by_student_id(@student.id, :order => 'testdate ASC').each do | student_test| %> 
   	<tr> 
-  	  <t d><%= Rank.find(student_test.rank_id).name %></td> 
-  	  <t d><%= student_test.testdate.strftime("%m/%d/%Y") %></td> 
+  	  <td><%= Rank.find(student_test.rank_id).name %></td> 
+  	  <td><%= student_test.testdate.strftime("%m/%d/%Y") %></td> 
   	</tr>  
   	<% end %>
     </table>

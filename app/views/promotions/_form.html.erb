@@ -1,10 +1,10 @@
-<%= form_for(@ranktest) do |f| %>
-  <% if @ranktest.errors.any? %>
+<%= form_for(@promotion) do |f| %>
+  <% if @promotion.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@ranktest.errors.count, "error") %> prohibited this promotion from being saved:</h2>
+      <h2><%= pluralize(@promotion.errors.count, "error") %> prohibited this promotion from being saved:</h2>
 
       <ul>
-      <% @ranktest.errors.full_messages.each do |msg| %>
+      <% @promotion.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -17,11 +17,11 @@
   </div>
   <div class="field">
     <%= f.label :student %>
-    <%= collection_select( :ranktest, :student_id, Student.all(:order => 'lastname ASC'), :id, :fullname, {:prompt => true} ) %>
+    <%= collection_select( :promotion, :student_id, Student.all(:order => 'lastname ASC'), :id, :fullname, {:prompt => true} ) %>
   </div>
   <div class="field">
     <%= f.label :promoted_to %>
-    <%= collection_select( :ranktest, :rank_id, Rank.all(:order => 'seq ASC'), :id, :name, {:prompt => true} ) %>
+    <%= collection_select( :promotion, :rank_id, Rank.all(:order => 'seq ASC'), :id, :name, {:prompt => true} ) %>
   </div>
   <div class="actions">
     <%= f.submit %>

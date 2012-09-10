@@ -3,8 +3,8 @@ class Student < ActiveRecord::Base
   belongs_to :rank
   has_many :notes, :dependent => :destroy
   has_many :year_end_reviews, :dependent => :destroy
-  has_many :ranktests, :dependent => :destroy
-  accepts_nested_attributes_for :ranktests
+  has_many :promotions, :dependent => :destroy
+  accepts_nested_attributes_for :promotions
   def fullname
     "#{firstname} #{lastname}"
   end

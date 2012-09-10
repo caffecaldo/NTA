@@ -8,7 +8,7 @@ NTA::Application.routes.draw do
 
   resources :notes
 
-  resources :ranktests
+  resources :promotions
 
   #this_month = Date.today.strftime("%Y-%m")
 
@@ -28,7 +28,8 @@ NTA::Application.routes.draw do
 
   resources :ranks
 
-  resources :reports
+  #resources :reports
+  match 'report' => redirect('/students/report')
 
   get "home/index"
   

@@ -18,7 +18,7 @@ $(document).ready ->
       ]
 	})
 $(document).ready ->
-	$('#ranktestsDT').dataTable( {
+	$('#promotionsDT').dataTable( {
 	"aaSorting": [[ 0, "desc" ]]
 	})
 #jQuery ->

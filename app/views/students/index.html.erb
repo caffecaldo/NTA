@@ -20,16 +20,16 @@
 <tbody>
 <% @students.each do |student| %>
   <tr>
-    <% last_ranktest = Ranktest.where(:student_id => student.id).order(:testdate).last %>
-    <% if last_ranktest.nil? %>
+    <% last_promotion = Promotion.where(:student_id => student.id).order(:testdate).last %>
+    <% if last_promotion.nil? %>
       <% rank_name = 'Member' %>
       <% rank_seq = 0 %>
-      <% rank_test_date = student.join_date.strftime( "%m/%d/%Y" ) %>
+      <% promotion_date = student.join_date.strftime( "%m/%d/%Y" ) %>
     <% else %>
-      <% rank = Rank.find(last_ranktest.rank_id) %>
+      <% rank = Rank.find(last_promotion.rank_id) %>
       <% rank_name = rank.name %>
       <% rank_seq = rank.seq %>
-      <% rank_test_date = last_ranktest.testdate.strftime( "%m/%d/%Y" ) %>
+      <% promotion_date = last_promotion.testdate.strftime( "%m/%d/%Y" ) %>
     <% end %>
     <td><%= rank_seq %></td>
     <td align=left><%= rank_name %></td>
@@ -42,7 +42,7 @@
       <% last_class_date = last_class.class_date.strftime( "%m/%d/%Y" ) %>
     <% end %>
     <td><%= last_class_date %></td>
-    <td><%= rank_test_date %> </td>
+    <td><%= promotion_date %> </td>
     <td><%= link_to 'Edit', edit_student_path(student) %></td>
     <td><%= link_to 'Delete', student, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
