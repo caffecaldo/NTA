@@ -17,19 +17,23 @@
   <tr>
     <% last_promotion = Promotion.where(:student_id => student.id).order(:testdate).last %>
     <% if last_promotion.nil? %>
-      <% rank_name = 'Member' %>
-      <% rank_seq = 0 %>
-      <% next_rank_seq = 1 %>
+      <% rank = Rank.find_by_seq(0) %>
+      <% base_date = student.join_date %>
     <% else %>
       <% rank = Rank.find(last_promotion.rank_id) %>
-      <% rank_name = rank.name %>
-      <% rank_seq = rank.seq %>
-      <% next_rank_seq = rank.seq + 1 %>
-      <% hours_delta = Attendance.sum(:class_hours, :conditions => ['student_id = ? AND class_date >= ?', student.id, last_promotion.testdate]) - Rank.find_by_seq(next_rank_seq).class_hours_required %>
-    <% hours = hours_delta %>
-    <% month_delta = ((Date.today - last_promotion.testdate).to_int / 30) - rank.cal_months_required %>
-    <% months = month_delta %>
+      <% base_date = last_promotion.testdate %>
     <% end %>
+
+    <% rank_name = rank.name %>
+    <% rank_seq = rank.seq %>
+
+    <% next_rank_seq = rank_seq + 1 %>
+    <% next_rank = Rank.find_by_seq(rank_seq + 1) %>
+
+    <% hours = Attendance.sum(:class_hours, :conditions => ['student_id = ? AND class_date >= ?', student.id, base_date]) - next_rank.class_hours_required %>
+
+    <% months = ((Date.today - base_date).to_int / 30) - next_rank.cal_months_required %>
+
     <td><%= rank_seq %></td>
     <td align="center"><%= rank_name %></td>
     <td align="center"><%= link_to student.firstname, student %></td>
