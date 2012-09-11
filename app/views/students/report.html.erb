@@ -26,8 +26,6 @@
 
     <% rank_name = rank.name %>
     <% rank_seq = rank.seq %>
-
-    <% next_rank_seq = rank_seq + 1 %>
     <% next_rank = Rank.find_by_seq(rank_seq + 1) %>
 
     <% hours = Attendance.sum(:class_hours, :conditions => ['student_id = ? AND class_date >= ?', student.id, base_date]) - next_rank.class_hours_required %>
