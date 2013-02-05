@@ -2,21 +2,21 @@
 
 <p>
   <b>Test date:</b>
-  <%= @ranktest.testdate.strftime( "%m/%d/%Y" ) %>
+  <%= @promotion.testdate.strftime( "%m/%d/%Y" ) %>
 </p>
 
 <p>
   <b>Student:</b>
-  <%= Student.find(@ranktest.student_id).fullname %>
+  <%= Student.find(@promotion.student_id).fullname %>
 </p>
 
 <p>
   <b>Rank:</b>
-  <%= Rank.find(@ranktest.rank_id).name %>
+  <%= Rank.find(@promotion.rank_id).name %>
 </p>
 
 
-<%= link_to 'Edit', edit_ranktest_path(@ranktest) %> |
-<%= link_to 'Back', ranktests_path %>
+<%= link_to 'Edit', edit_promotion_path(@promotion) %> |
+<%= link_to 'Back', promotions_path %>
 <p></p>
 <%= link_to "Home", root_path %>
