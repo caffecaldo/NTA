@@ -80,6 +80,11 @@
 </p>
 
 <p>
+  <b>Is adult:</b>
+  <%= check_box_tag 'sticky', 'yes', @student.is_adult, :disabled => true %>
+</p>
+
+<p>
   <b>Sticky listing:</b>
   <%= check_box_tag 'sticky', 'yes', @student.sticky_listing, :disabled => true %>
 </p>

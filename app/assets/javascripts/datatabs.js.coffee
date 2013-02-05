@@ -18,6 +18,22 @@ $(document).ready ->
       ]
 	})
 $(document).ready ->
+	$('#report1DT').dataTable( {
+	"aaSorting": [[ 1, "desc" ]]
+	"aoColumnDefs": [ 
+      { "bVisible": false, "aTargets": [ 0 ] }
+      { "iDataSort": 0, "aTargets": [ 1 ] }
+      ]
+	})
+$(document).ready ->
+	$('#report2DT').dataTable( {
+	"aaSorting": [[ 1, "desc" ]]
+	"aoColumnDefs": [ 
+      { "bVisible": false, "aTargets": [ 0 ] }
+      { "iDataSort": 0, "aTargets": [ 1 ] }
+      ]
+	})
+$(document).ready ->
 	$('#promotionsDT').dataTable( {
 	"aaSorting": [[ 0, "desc" ]]
 	})

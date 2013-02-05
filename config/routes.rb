@@ -1,4 +1,5 @@
 NTA::Application.routes.draw do
+  match 'students/report2' => 'Students#report2'
   match 'students/report' => 'Students#report'
   resources :students
 
@@ -29,7 +30,8 @@ NTA::Application.routes.draw do
   resources :ranks
 
   #resources :reports
-  match 'report' => redirect('/students/report')
+  #match 'report2' => redirect('/students/report2')
+  match 'report'  => redirect('/students/report')
 
   get "home/index"
   

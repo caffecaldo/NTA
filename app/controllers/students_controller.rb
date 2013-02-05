@@ -24,6 +24,15 @@ class StudentsController < ApplicationController
       format.xml  { render :xml => @students }
     end
   end
+  def report2
+    #@students = Student.all
+    @students = Student.all(:order => 'lastname ASC')
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @students }
+    end
+  end
 
   # GET /students/1
   # GET /students/1.xml

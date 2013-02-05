@@ -7,14 +7,13 @@
     <th>Current<br />rank</th>
     <th>First<br />name</th>
     <th>Last<br />name</th>
-    <th>Class hours<br />towards next rank</th>
-    <th>Calendar months<br />towards next rank</th>
+    <th>Class hours<br />accrued</th>
+    <th>Calendar months<br />accrued</th>
   </tr>
   </thead>
 
 <tbody>
 <% @students.each do |student| %>
-
   <% last_promotion = Promotion.where(:student_id => student.id).order(:testdate).last %>
   <% if last_promotion.nil? %>
     <% rank_seq_no = 0 %>
@@ -33,18 +32,18 @@
   <% rank_seq = rank.seq %>
   <% next_rank = Rank.find_by_seq(rank_seq + 1) %>
 
-  <% hours = Attendance.sum(:class_hours, :conditions => ['student_id = ? AND class_date >= ?', student.id, base_date]) - next_rank.class_hours_required %>
+  <% hours = Attendance.sum(:class_hours, :conditions => ['student_id = ? AND class_date >= ?', student.id, base_date]) %>
 
-  <% months = ((Date.today - base_date).to_int / 30) - next_rank.cal_months_required %>
+  <% months = ((Date.today - base_date).to_int / 30) %>
 
-  <% if (hours >= 0) and (months >= 0) %>
+  <% if (hours < next_rank.class_hours_required) or (months < next_rank.cal_months_required) %>
     <tr>
-      <td><%= rank_seq %></td>
-      <td align="center"><%= rank_name %></td>
-      <td align="center"><%= link_to student.firstname, student %></td>
-      <td align="center"><%= link_to student.lastname, student %></td>
-      <td align="center"><%= hours %></td>
-      <td align="center"><%= months %></td>
+    <td><%= rank_seq %></td>
+    <td align="center"><%= rank_name %></td>
+    <td align="center"><%= link_to student.firstname, student %></td>
+    <td align="center"><%= link_to student.lastname, student %></td>
+    <td align="center"><%= hours %></td>
+    <td align="center"><%= months %></td>
     </tr>
   <% end %>
 <% end %>
@@ -53,5 +52,5 @@
 
 <br/>
 <p>
-<%= link_to 'Ineligible students report', students_report2_path %>
+<%= link_to 'Eligible students report', students_report_path %>
 </p>
